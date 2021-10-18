@@ -71,7 +71,6 @@
                         <ul class="submenu">
                           <li><a [routerLink]="['/users/account']">Thông tin cá nhân</a></li>
                           <li><a [routerLink]="['/exp/list']">Thông tin kinh nghiệm</a></li>
-                          <li><a routerLink="/users/cv">CV của tôi</a></li>
                           <li><a (click)="logOut()">Đăng xuất</a></li>
                         </ul>
                       </li>
@@ -119,41 +118,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Header End -->
 </header>
-<div class="modal fade" id="exampleModalx" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-  <form [formGroup]="UpCVForm" (ngSubmit)="save()" novalidate>
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="font-size: 20px">Đăng CV</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-2 mt-2">Tên CV: </div>
-          <div class="col-10">
-            <input type="text" class="form-control" formControlName="nameCV"
-                   placeholder="Tên CV">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-8">
-            <div class="col-12 mt-3">
-              <app-upload-cv (givenURLtoCreate)="onChangeCv($event)"></app-upload-cv>
-            </div>
-          </div>
-
-          <div class="col-4 mt-3" *ngIf="checkValid">
-            <i class="fas fa-check-circle" style="color: #1c7430; font-size: 30px"></i>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" *ngIf="checkValid">Lưu thay đổi</button>
-      </div>
-    </div>
-  </div>
-  </form>
-</div>
