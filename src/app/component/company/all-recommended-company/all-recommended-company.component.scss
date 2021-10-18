@@ -1,0 +1,146 @@
+.job-header {
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  margin-bottom: 30px;
+}
+.job-header .jobinfo {
+  padding: 25px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.job-header .jobinfo h2 {
+  font-size: 24px;
+  color: #444;
+}
+.job-header .jobinfo .ptext {
+  color: #999;
+  margin: 12px 0;
+}
+.job-header .jobinfo .salary {
+  font-size: 16px;
+  font-weight: 700;
+  color: #888;
+}
+.job-header .jobinfo .salary strong {
+  color: #000;
+}
+.job-header .jobinfo .companyinfo {
+  text-align: right;
+}
+.job-header .jobinfo .companyinfo .companylogo {
+  float: right;
+  width: 75px;
+  background: #fff;
+  margin-left: 20px;
+  border: 5px solid #eee;
+}
+.job-header .jobinfo .companyinfo .companylogo img{display:block;}
+.job-header .jobinfo .companyinfo .title a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #263bd6;
+}
+.job-header .jobinfo .companyinfo .opening a {
+  color: #333;
+}
+
+/*Candidate Info*/
+.job-header .jobinfo .candidateinfo .userPic {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #cbcbcb;
+  margin-right: 20px;
+}
+.job-header .jobinfo .candidateinfo .title {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600
+}
+.job-header .jobinfo .candidateinfo .desi {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
+.job-header .jobinfo .candidateinfo .loctext {
+  line-height: 24px;
+  color: #555;
+  margin-top: 8px;
+}
+.job-header .jobinfo .candidateinfo .loctext i {
+  width: 20px;
+  color: #263bd6;
+}
+.cadsocial {
+  margin-top: 10px;
+}
+.cadsocial a {
+  color: #666;
+  font-size: 24px;
+  display: inline-block;
+  margin-right: 7px;
+}
+.cadsocial a:hover {
+  color: #263bd6;
+}
+.relatedJobs {
+  margin-bottom: 30px;
+}
+.relatedJobs h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 15px;
+}
+/*Buttons*/
+.jobButtons {
+  padding: 20px 25px;
+}
+.jobButtons a {
+  background: #f0f0f0;
+  margin-right: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+.jobButtons a.report {
+  background: #e01010;
+  color: #fff;
+}
+.jobButtons a.apply {
+  background: #a8d815;
+  color: #fff
+}
+.jobButtons a:hover {
+  background: #222;
+  color: #fff;
+}
+.job-header .contentbox {
+  padding: 35px;
+}
+.job-header .contentbox h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #263bd6;
+  margin-bottom: 10px;
+}
+.job-header .contentbox p {
+  line-height: 24px;
+  color: #555;
+  margin-bottom: 20px;
+}
+.job-header .contentbox ul {
+  margin-bottom: 30px;
+}
+.job-header .contentbox ul li {
+  padding: 10px 0 10px 25px;
+  position: relative;
+  line-height: 24px;
+}
+.job-header .contentbox ul li:before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  color: #a8d815;
+  position: absolute;
+  left: 0;
+}
+

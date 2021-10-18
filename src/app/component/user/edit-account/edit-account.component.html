@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <!--       style="background: url('../../../../assets/img/hero/h1_hero.jpg'); background-size: cover; background-repeat: no-repeat">-->
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5 border">
+              <h1 class="login-heading text-center p-2">Thông tin tài khoản</h1>
+<!--              <div class="row text-center" *ngIf="message">-->
+<!--                <div class="alert alert-success" role="alert" *ngIf="isUpdated">{{message}}</div>-->
+<!--                <div class="alert alert-danger" role="alert" *ngIf="!isUpdated">{{message}}</div>-->
+<!--              </div>-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Tên người dùng:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{userName}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Email:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{email}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Số điện thoại:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{phone}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Password:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">******** </label>
+                      <a class="font-weight-bold ml-200" [routerLink]="['/users/edit-account']">Đổi mật khẩu</a>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-12 text-center">
+                      <a class="font-weight-bold" [routerLink]="['/users/edit']">Sửa thông tin</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

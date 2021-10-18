@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5" style="background-color: snow">
+              <h1 class="login-heading text-center">Sửa thông tin người dùng</h1>
+              <form [formGroup]="infoEditForm" (ngSubmit)="edit()" novalidate>
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" formControlName="userName"
+                               placeholder="Tên người dùng *">
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('userName')?.errors?.required && infoEditForm.get('userName')?.touched">
+                          Tên công ty không được để trống
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-telephone"></i></span>
+                        <input type="text" class="form-control" formControlName="phone"
+                               placeholder="Số điện thoại *                             (VD: +84123456789)">
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('phone')?.errors?.required && infoEditForm.get('phone')?.touched">
+                          Số điện thoại không được để trống
+                        </div>
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('phone')?.errors?.pattern">
+                          Số điện thoại phải bắt đầu với +84 và 9 chữ số tiếp theo (VD: +84123456789)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <p>* : Không được để trống</p>
+                      <button class="btn btn-primary form-control"
+                              [disabled]="infoEditForm.invalid" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                        Cập nhật
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">-->
+    <!--    </div>-->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Thông tin công ty</h5>
+      </div>
+      <div class="modal-body">
+        Cập nhật thành công
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="reload()" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

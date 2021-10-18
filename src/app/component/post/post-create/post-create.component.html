@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row pt-5 pb-5 ">
+    <div class="col-1"></div>
+    <div class="col-10 p-3 pt-4 pb-4" style="-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);border-radius: 3px 3px 3px 3px;">
+      <h1 class="font-weight-bold" style="text-align: center">Đăng tin tuyển dụng</h1>
+      <form [formGroup]="postForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="title">Tiêu đề</label>
+          <input type="text" class="form-control" id="title" formControlName="title" placeholder="Tuyển dụng ...">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="category">Ngành</label>
+            <select id="category" class="form-control" formControlName="category">
+              <option *ngFor="let c of categories, index as i" [value]="c.id">{{c.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="work-form">Hình thức</label>
+            <select id="work-form" class="form-control" formControlName="workForm">
+              <option *ngFor="let w of workForms" [value]="w.id">{{w.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="gender">Giới tính</label>
+            <select id="gender" class="form-control" formControlName="gender">
+              <option *ngFor="let g of genders" [value]="g.id">{{g.gender}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="exp">Kinh nghiệm</label>
+            <input type="text" class="form-control" id="exp" formControlName="exp" placeholder="6 tháng ,1 năm, ...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="position">Vị trí</label>
+            <input type="text" class="form-control" id="position" formControlName="position"
+                   placeholder="Lập trình viên Java,PHP,Python,....">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="salary">Lương</label>
+            <div class="row">
+              <div class="col-8">
+                <input type="text" class="form-control" id="salary" formControlName="salary" placeholder="1000">
+              </div>
+              <div class="col-4">
+                <input type="text" class="form-control" value="VNĐ" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="quantity">Số lượng (*)</label>
+            <input type="text" class="form-control" id="quantity" formControlName="quantity" placeholder="20">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="address">Địa chỉ</label>
+            <input type="text" class="form-control" id="address" formControlName="address"
+                   placeholder="135 Trần Duy Hưng , ...">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="city">Thành phố</label>
+            <select id="city" class="form-control" formControlName="city">
+              <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="expiredDate">Thời gian hết hạn đăng bài</label>
+            <input type="date" class="form-control" id="expiredDate" formControlName="expiredDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Mô tả</label>
+          <textarea class="form-control" id="description" formControlName="description"
+                    placeholder="Phát triển sản phẩm Tap PMS - Sản phẩm chuyên cho các tập đoàn khách sạn, resort quy mô lớn hơn 300 phòng...."></textarea>
+        </div>
+        <div class="col-md-12 alert alert-danger" role="alert"
+             *ngIf="postForm.get('quantity')?.invalid && postForm.get('quantity')?.touched">
+          <div *ngIf="postForm.get('quantity')?.errors?.required">
+            Số lượng không được để trống
+          </div>
+        </div>
+        (*): Không được để trống số lượng <br>
+        <button [disabled]="postForm.invalid" type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Đăng tin
+        </button>
+      </form>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bài đăng mới</h5>
+      </div>
+      <div class="modal-body">
+        Đăng tin thành công
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="reload()" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

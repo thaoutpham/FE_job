@@ -1,0 +1,41 @@
+<!--<div class="row ">-->
+<div class="row mt-3">
+  <div class="col-12 text-center pt-3">
+    <h1 class="display-4 font-weight-bold uppercase">Tin đề xuất</h1>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-12" *ngFor="let post of posts">
+    <div class="card mb-3" style="max-width: 650px;">
+      <div class="row g-0">
+        <div class="col-md-3">
+          <img [src]="post.company?.image" class="img-fluid rounded-start p-3" alt="..."
+               style="width: 100px;height: 100px">
+        </div>
+        <div class="col-md-9" style="font-size: 10px">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-9">
+                <p class="card-title" style="font-size: 10px;width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">
+                  <a routerLink="posts/view/{{post.id}}" style="font-size: 20px">{{post.title | uppercase}}</a>
+                  <br>
+                  Số lượng tuyển :{{post.quantity}},
+                  Cấp bậc :{{post.position}},
+                  Kinh nghiệm :{{post.exp}}<br>
+                  Thời gian kết thúc : {{post.expiredDate | date : "dd/MM/yyyy"}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  <div class="row">-->
+<div class="viewallbtn mb-3"><a routerLink="/posts/recommended">Xem tất cả</a></div>
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-8" *ngIf="posts.length <=0">
+    <div class="row">
+      <div class="col-12 pt-3">
+        <h1 class="font-weight-bold pt-3">Kết quả tìm kiếm</h1>
+      </div>
+    </div>
+    <h2 class="text-center">Không có kết quả phù hợp</h2>
+  </div>
+  <div class="col-8" *ngIf="posts.length > 0">
+    <div class="row">
+      <div class="col-12 pt-3">
+        <h1 class="font-weight-bold pt-3">Kết quả tìm kiếm</h1>
+      </div>
+    </div>
+    <div class="card mb-3" style="width: 100%;"
+         *ngFor="let post of posts | paginate: {itemsPerPage: 10, currentPage: page}">
+      <div class="row g-0">
+        <div class="col-md-2">
+          <img [src]="post.company?.image" class="img-fluid rounded-start p-3" alt="..."
+               style="width: 100px;height: 100px">
+        </div>
+        <div class="col-md-10" style="font-size: 10px">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <p class="card-title" style="font-size: 10px">
+                  <a (click)="viewDetail(post.id)"
+                     style="font-size: 20px; text-decoration: underline">{{post.title | uppercase}}</a>
+                  <br>
+                  Số lượng tuyển :{{post.quantity}},
+                  Cấp bậc :{{post.position}},
+                  Kinh nghiệm :{{post.exp}}<br>
+                  Thời gian kết thúc : {{post.expiredDate | date : "dd/MM/yyyy"}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+  <div class="col-4">
+    <app-search-advanced></app-search-advanced>
+  </div>
+</div>
+

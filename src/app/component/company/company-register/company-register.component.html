@@ -1,0 +1,155 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Đăng kí</h5>
+      </div>
+      <div class="modal-body" *ngIf="!isRegistered && message !== ''">
+        Tài khoản đã tồn tại!
+      </div>
+      <div class="modal-body" *ngIf="isRegistered">
+        Đăng kí thành công
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="reload()" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row no-gutter"
+       style="background: url('../../../../assets/img/hero/h1_hero.jpg'); background-size: cover; background-repeat: no-repeat">
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h2 class="login-heading text-center font-weight-bold">Đăng ký thành viên với tư cách nhà tuyển dụng</h2>
+              <!--              <div class="alert alert-success" role="alert" *ngIf="isRegistered">{{message}}</div>-->
+              <!--              <div class="alert alert-warning" role="alert" *ngIf="!isRegistered && (message != '')">{{message}}</div>-->
+              <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-building"></i></span>
+                    <input type="text" class="form-control" formControlName="companyName" placeholder="Tên công ty">
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('companyName')?.errors?.required && registerForm.get('companyName')?.touched">
+                      Tên công ty không được để trống
+                    </div>
+                  </div>
+                </div>
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-building"></i></span>
+                    <input type="text" class="form-control" formControlName="shortName" placeholder="Tên viết tắt">
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('shortName')?.errors?.required && registerForm.get('shortName')?.touched">
+                      Tên viết tắt không được để trống
+                    </div>
+                    <div class="col-md-12 alert alert-danger" role="alert" *ngIf="registerForm.get('shortName')?.errors?.minlength">
+                      Tên viết tắt có ít nhất 3 ký tự
+                    </div>
+                    <div class="col-md-12 alert alert-danger" role="alert" *ngIf="registerForm.get('shortName')?.errors?.maxlength">
+                      Tên viết tắt không được quá 20 ký tự
+                    </div>
+                  </div>
+                </div>
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched">
+                      Email không được để trống
+                    </div>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('email')?.errors?.email">
+                      Email sai định dạng (VD: abc@gmail.com)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-lock"></i></span>
+                    <input [attr.type]="[isPassword]" class="form-control" formControlName="password"
+                           placeholder="Password">
+                    <span class="input-group-text" [hidden]="(isPassword== 'text')" (click)="showPass()"
+                          style="background: skyblue"><i
+                      class="bi bi-eye"></i></span>
+                    <span class="input-group-text" [hidden]="(isPassword== 'password')" (click)="showPass()"
+                          style="background: skyblue"><i
+                      class="bi bi-eye-slash"></i></span>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                      <div *ngIf="registerForm.get('password')?.errors?.required">
+                        Mật khẩu không được để trống
+                      </div>
+                      <div *ngIf="registerForm.get('password')?.errors?.minlength">
+                        Mật khẩu phải ít nhất 8 ký tự
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-lock"></i></span>
+                    <input [attr.type]="[isPassword]" class="form-control" formControlName="confirmedPassword"
+                           placeholder="Confirm password">
+                    <span class="input-group-text" [hidden]="(isPassword== 'text')"
+                          (click)="showPass()" style="background: skyblue"><i class="bi bi-eye"></i></span>
+                    <span class="input-group-text" [hidden]="(isPassword== 'password')"
+                          (click)="showPass()" style="background: skyblue"><i
+                      class="bi bi-eye-slash"></i></span>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('confirmedPassword')?.invalid && registerForm.get('confirmedPassword')?.touched">
+                      <div *ngIf="registerForm.get('confirmedPassword')?.errors?.required">
+                        Xác nhận mật khẩu không được để trống
+                      </div>
+                    </div>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.value.password != registerForm.value.confirmedPassword">
+                      Xác nhận mật khẩu không trùng khớp
+                    </div>
+                  </div>
+                </div>
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-book"></i></span>
+                    <textarea type="text" class="form-control" formControlName="description"
+                              placeholder="Mô tả"></textarea>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('description')?.errors?.required && registerForm.get('description')?.touched">
+                      Mô tả không được để trống
+                    </div>
+                    <div class="col-md-12 alert alert-danger" role="alert"
+                         *ngIf="registerForm.get('phone')?.errors?.pattern">
+                      Số điện thoại phải bắt đầu với +84 và 9 chữ số tiếp theo (VD: +84123456789)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col mt-3">
+                  <button class="btn btn-primary form-control"
+                          [disabled]="registerForm.invalid" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Đăng ký
+                  </button>
+                </div>
+
+                <div class="text-center pt-3">
+                  Bạn đã có tài khoản? <a class="font-weight-bold" routerLink="/companies/login">Đăng nhập ngay</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+    </div>
+  </div>
+</div>
+
+

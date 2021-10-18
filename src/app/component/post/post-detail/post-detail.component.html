@@ -1,0 +1,119 @@
+<!--<div class="job-post-company">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-12">-->
+
+<!--      </div>-->
+<!--    </div>-->
+<div class="row border" style="background-color: ghostwhite">
+  <h1 class="text-center">Chi tiết công việc</h1>
+  <!-- Left Content -->
+  <div class="col-xl-7 col-lg-8">
+    <!-- job single -->
+    <div class="single-job-items">
+      <div class="job-items">
+        <div class="col-3 company-img company-img-details">
+          <a><img [src]="post.company?.image" width="85px" height="85px"></a>
+        </div>
+        <div class=" col-9 job-tittle">
+          <a>
+            <h4>{{post.title | uppercase}}</h4>
+          </a>
+          <p>Vị trí: {{post.position}}</p>
+          <p>Kinh nghiệm: {{post.exp}}</p>
+          <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: {{post.company?.address}}</p>
+          <p *ngIf="isLogin">Lương: {{post.salary}} VNĐ</p>
+          <p *ngIf="!isLogin"><a routerLink="/users/login" class="btn btn-primary">Đăng nhập để xem lương</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- job single End -->
+
+    <div class="job-post-details">
+      <div class="post-details1 mb-50">
+        <!-- Small Section Tittle -->
+        <div class="small-section-tittle">
+          <h4>Mô tả công việc</h4>
+        </div>
+        <p>{{post.description}}</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- Right Content -->
+  <div class="col-xl-5 col-lg-4">
+    <div class="post-details3  mb-50" style="background-color: white">
+      <!-- Small Section Tittle -->
+      <div class="small-section-tittle">
+        <h4 class="text-center font-weight-bold">Thông tin công việc</h4>
+      </div>
+      <ul>
+        <li>Nơi làm việc : <span>{{post.address}}</span></li>
+        <li>Số lượng : <span>{{post.quantity}}</span></li>
+        <li>Hình thức làm việc : <span>{{post.workForm?.name}}</span></li>
+        <li>Ngày hết hạn : <span>{{post.expiredDate | date :"dd/MM/yyyy"}}</span></li>
+      </ul>
+      <div class="apply-btn2 text-center">
+        <!--            <a *ngIf="isLogin && !isUser" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpCV" style="color: white" disabled></a>-->
+        <button *ngIf="isLogin && !isApplied && isUser" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModalUpCV" style="color: white">Apply Now
+        </button>
+        <button *ngIf="isLogin && isApplied && isUser" class="btn btn-primary" style="color: white" disabled>Bạn đã nộp
+          CV
+        </button>
+        <p *ngIf="!isLogin"><a routerLink="/users/login" class="btn btn-primary">Đăng nhập để nộp CV</a></p>
+      </div>
+    </div>
+    <div>
+      <h2 class="text-center">Tin cùng chuyên ngành</h2>
+      <hr>
+      <div class="card mb-3" style="max-width: 650px;"
+           *ngFor="let post of posts | paginate: {itemsPerPage: 5, currentPage: page}">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img [src]="post.company?.image" class="img-fluid rounded-start p-3" alt="..." style="width: 100%">
+          </div>
+          <div class="col-md-8" style="font-size: 10px">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-9">
+                  <p class="card-title" style="font-size: 10px;width: 300px
+                      ;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                    <a [href]="url+post.id" style="font-size: 20px">{{post.title}}</a>
+                    <br>
+                    Số lượng tuyển :{{post.quantity}},
+                    Cấp bậc :{{post.position}},
+                    Kinh nghiệm :{{post.exp}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+          </div>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+<!--  </div>-->
+<!--</div>-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalUpCV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     *ngIf="isLogin">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nộp CV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngIf="existedCv">
+        <app-cv></app-cv>
+      </div>
+      <div class="modal-body" *ngIf="!existedCv">
+        <p>Bạn chưa có CV</p>
+      </div>
+    </div>
+  </div>
+</div>

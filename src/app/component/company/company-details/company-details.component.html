@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row" style=" background: url('assets/img/img/image007-1591844926542282150680.jpg')no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+    <div class="col-12">
+      <div class="row" style="height: 500px">>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <section class="blog_area section-padding">
+      <!--      <div class="container">-->
+      <div class="row">
+        <h1 class="text-center">Chi tiết công ty</h1>
+        <div class="col-lg-8 mb-5 mb-lg-0">
+          <div class="blog_left_sidebar">
+            <article class="blog_item">
+              <div class="blog_item_img">
+                <div class="row">
+                  <div class="col-3">
+                    <img class="card" [src]="company?.image" width="100%" alt="">
+                  </div>
+                  <div class="col-9">
+                    <div class="row text-center p-3">
+                      <h2 class="font-weight-bold" style="font-size: 25px">{{company?.companyName}}</h2>
+                    </div>
+                    <div class="row mt-3 text-center">
+                      <div class="col-4">
+                        <i class="bi bi-geo-alt"></i>
+                        <br><a [href]="company?.linkGoogle"><span class="ml-1">{{company?.address}}</span></a>
+                      </div>
+                      <div class="col-4">
+                        <i class="bi bi-telephone"></i><br><span class="ml-1">{{company?.phone}}</span>
+                      </div>
+                      <div class="col-4">
+                        <i class="bi bi-globe"></i><br><a [href]="company?.website"><span
+                        class="ml-1">{{company?.website}}</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="blog_details">
+                <a class="d-inline-block" href="single-blog.html">
+                  <h2>Mô tả chung:</h2>
+                </a>
+                <p>{{company?.description}}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="blog_right_sidebar">
+            <aside class="single_sidebar_widget post_category_widget">
+              <h2 class="widget_title text-center">Thông tin công ty</h2>
+              <ul class="list cat-list">
+                <li>
+                  <a class="d-flex">
+                    <p>Email: {{company?.email}}</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="d-flex">
+                    <p>Số lượng nhân viên: {{company?.numberOfStaff}}</p>
+                  </a>
+                </li>
+              </ul>
+            </aside>
+          </div>
+<!--          <div class="row">-->
+            <app-company-post></app-company-post>
+<!--          </div>-->
+        </div>
+      </div>
+      <!--      </div>-->
+    </section>
+  </div>
+</div>
+

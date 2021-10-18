@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h1 class="login-heading text-center">Sửa thông tin công ty</h1>
+<!--              <div class="alert alert-success" role="alert" *ngIf="isUpdated">{{message}}</div>-->
+              <!--              <div class="alert alert-warning" role="alert" *ngIf="!isRegistered && (message != '')">{{message}}</div>-->
+              <form [formGroup]="infoEditForm" (ngSubmit)="edit()" novalidate>
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="col-12" style="border-radius: 50%; height: 256px; width: 256px;">
+                      <img src="{{image}}" style="width: 256px; height: 256px; border-radius: 50%">
+                    </div>
+                    <div class="col-12 mt-3">
+                      <app-upload (givenURLtoCreate)="onChangeImage($event)"></app-upload>
+                    </div>
+                  </div>
+                  <!--                  <div class="col-md-2"></div>-->
+                  <div class="col-md-7">
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-building"></i></span>
+                        <input type="text" class="form-control" formControlName="companyName"
+                               placeholder="Tên công ty *">
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('companyName')?.errors?.required && infoEditForm.get('companyName')?.touched">
+                          Tên công ty không được để trống
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-building"></i></span>
+                        <input type="text" class="form-control" formControlName="shortName"
+                               placeholder="Tên viết tắt">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-telephone"></i></span>
+                        <input type="text" class="form-control" formControlName="phone" placeholder="Số điện thoại *                             (VD: +84123456789)">
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('phone')?.errors?.required && infoEditForm.get('phone')?.touched">
+                          Số điện thoại không được để trống
+                        </div>
+                        <div class="col-md-12 alert alert-danger" role="alert"
+                             *ngIf="infoEditForm.get('phone')?.errors?.pattern">
+                          Số điện thoại phải bắt đầu với +84 và 9 chữ số tiếp theo (VD: +84123456789)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" style="background: skyblue"><i class="bi bi-book"></i></span>
+                        <textarea type="text" class="form-control" formControlName="description"
+                                  placeholder="Mô tả"></textarea>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-geo-alt"></i></span>
+                        <input type="text" class="form-control" formControlName="address" placeholder="Địa chỉ">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-person-badge"></i></span>
+                        <input type="text" class="form-control" formControlName="numberOfStaff"
+                               placeholder="Số lượng nhân viên">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-geo-alt"></i></span>
+                        <input type="text" class="form-control" formControlName="branch" placeholder="Chi nhánh">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-google"></i></span>
+                        <input type="text" class="form-control" formControlName="linkGoogle"
+                               placeholder="Link Google">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="input-group has-validation">
+                          <span class="input-group-text" style="background: skyblue"><i
+                            class="bi bi-globe"></i></span>
+                        <input type="text" class="form-control" formControlName="website" placeholder="Website">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <p>* : Không được để trống</p>
+                  <button class="btn btn-primary form-control"
+                          [disabled]="infoEditForm.invalid" data-bs-toggle="modal" data-bs-target="#exampleModal">Cập nhật
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">-->
+    <!--    </div>-->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Thông tin công ty</h5>
+      </div>
+      <div class="modal-body">
+        Cập nhật thành công
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="reload()" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+<header>
+  <!-- Header Start -->
+  <div class="header-area header-transparrent" >
+    <div class="headder-top header-sticky">
+      <div class="container-fluid" style="background-color: whitesmoke">
+        <div class="row align-items-center pt-4 pb-4">
+          <div class="col-lg-3 col-md-2" >
+            <!-- Logo -->
+            <div class="logo" >
+              <a routerLink="/"><img src="../../../../assets/img/logo/logo.png" alt="" ></a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9">
+            <div class="menu-wrapper">
+              <!-- Main-menu -->
+              <div class="main-menu">
+                <nav class="d-none d-lg-block">
+                  <ul id="navigation" class="tu" *ngIf="token === ''">
+<!--                    <li><a routerLink="/">Trang chủ</a></li>-->
+<!--                    <li><a routerLink="/search-advanced">Tìm kiếm nâng cao</a></li>-->
+                  </ul>
+                  <ul id="navigation1" class="tu" *ngIf="(token !== '') && (type === 'USER')">
+<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
+<!--                      Trang chủ-->
+<!--                    </button>-->
+<!--                    </li>-->
+                  </ul>
+                  <ul id="navigation2" class="tu" *ngIf="(token !== '') && (type === 'COMPANY')">
+<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
+<!--                      Trang chủ-->
+<!--                    </button>-->
+<!--                    </li>-->
+                  </ul>
+                  <ul id="navigation3" class="tu" *ngIf="(token !== '') && (type === 'ADMIN')">
+<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
+<!--                      Trang chủ-->
+<!--                    </button>-->
+<!--                    </li>-->
+                    <li><div class="dropdown">
+                      <button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Quản lý doanh nghiệp
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <a class="dropdown-item" routerLink="/admin/company-accounts">Duyệt tài khoản</a>
+                        <a class="dropdown-item" routerLink="/admin/company-list">Sửa thông tin</a>
+                      </div>
+                    </div></li>
+                    <li><div class="dropdown">
+                      <button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Quản lý bài đăng
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <a class="dropdown-item" routerLink="admin/post-management">Quản lý bài đăng</a>
+                      </div>
+                    </div></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- Header-btn -->
+              <div class="header-btn d-none f-right d-lg-block" *ngIf="token === ''">
+                <a [routerLink]="['users','login']" class="btn btn-warning mr-2">Người tìm việc</a>
+                <a [routerLink]="['companies','login']" class="btn btn-success mr-2">Nhà tuyển dụng</a>
+              </div>
+              <div class="header-btn d-none f-right d-lg-block" *ngIf="(token !== '') && (type === 'USER')">
+                <div class="main-menu">
+                  <nav class="d-none d-lg-block">
+                    <ul id="personal">
+                      <a data-bs-toggle="modal" data-bs-target="#exampleModalx" class="btn btn-primary"
+                         style="color: white" (click)="check()">Đăng CV</a>
+                      <li><a>{{name}}</a>
+                        <ul class="submenu">
+                          <li><a [routerLink]="['/users/account']">Thông tin cá nhân</a></li>
+                          <li><a [routerLink]="['/exp/list']">Thông tin kinh nghiệm</a></li>
+                          <li><a routerLink="/users/cv">CV của tôi</a></li>
+                          <li><a (click)="logOut()">Đăng xuất</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="header-btn d-none f-right d-lg-block" *ngIf="(token !== '') &&  (type === 'COMPANY')">
+                <div class="main-menu">
+                  <nav class="d-none d-lg-block">
+                    <ul id="personal1">
+                      <a (click)="next()" class="btn btn-primary" style="color: white">Đăng tin tuyển dụng</a>
+                      <li><a>{{name}}</a>
+                        <ul class="submenu">
+                          <li><a routerLink="/companies/account">Quản lý tài khoản</a></li>
+                          <li><a routerLink="/companies/info">Thông tin công ty</a></li>
+                          <li><a routerLink="/companies/find-all">Bài đăng của tôi</a></li>
+                          <li><a (click)="logOut()">Đăng xuất</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="header-btn d-none f-right d-lg-block" *ngIf="(token !== '') && (type === 'ADMIN')">
+                <div class="main-menu">
+                  <nav class="d-none d-lg-block">
+                    <ul id="personal2">
+                      <li><a>{{name}}</a>
+                        <ul class="submenu">
+                          <li><a (click)="logOut()">Đăng xuất</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile Menu -->
+          <div class="col-12">
+            <div class="mobile_menu d-block d-lg-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header End -->
+</header>
+<div class="modal fade" id="exampleModalx" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <form [formGroup]="UpCVForm" (ngSubmit)="save()" novalidate>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-size: 20px">Đăng CV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-2 mt-2">Tên CV: </div>
+          <div class="col-10">
+            <input type="text" class="form-control" formControlName="nameCV"
+                   placeholder="Tên CV">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="col-12 mt-3">
+              <app-upload-cv (givenURLtoCreate)="onChangeCv($event)"></app-upload-cv>
+            </div>
+          </div>
+
+          <div class="col-4 mt-3" *ngIf="checkValid">
+            <i class="fas fa-check-circle" style="color: #1c7430; font-size: 30px"></i>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" *ngIf="checkValid">Lưu thay đổi</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  background: #d0c6c6;
+  cursor: pointer;
+}
+h1 {
+  font-size: 17px !important;
+  margin: auto;
+  padding: 15px;
+  border-bottom: 1px solid #EEEEEE;
+  background-color: #4977ec;
+  border-radius: 3px 3px 0 0;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+

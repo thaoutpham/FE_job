@@ -1,0 +1,40 @@
+
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <h1>Thông tin kinh nghiêm</h1>
+    <a [routerLink]="['/exp/list']">Danh sách kinh nghiêm</a>
+    <form [formGroup]="expForm" (ngSubmit)="updateExp()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="skill">Công việc</label>
+          <input type="text" class="form-control" formControlName="skill" id="skill" placeholder="skill">
+          <div class="col-md-12 alert alert-danger" role="alert"
+               *ngIf="expForm.get('skill')?.errors?.required && expForm.get('skill')?.touched">
+            Công viêc không được để trống
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Số năm</label>
+          <input type="text" class="form-control" formControlName="year" id="inputPassword4" placeholder="year">
+          <div class="col-md-12 alert alert-danger" role="alert"
+               *ngIf="expForm.get('year')?.errors?.required && expForm.get('year')?.touched">
+            Năm không được để trống
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Salary</label>
+        <input type="text" class="form-control" formControlName="salary" id="inputAddress" placeholder="salary">
+        <div class="col-md-12 alert alert-danger" role="alert"
+             *ngIf="expForm.get('salary')?.errors?.required && expForm.get('salary')?.touched">
+          Lương không được để trống
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sửa</button>
+    </form>
+
+  </div>
+  <div class="col-4"></div>
+
+</div>

@@ -1,0 +1,24 @@
+<!--<div class="row">-->
+<div class="row mt-3">
+  <div class="col-12">
+    <h1 class="text-center font-weight-bold uppercase">Top công ty tuyển dụng hàng đầu</h1>
+  </div>
+  <!--    <div>-->
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let post of posts">
+      <ng-template carouselSlide id="{{post.company?.id}}">
+        <img [src]="post.company?.image" (click)="viewDetail(post.company?.id)" width="50%">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <!--  </div>-->
+  <!--  <carousel [cellsToShow]="5" [loop]="true" [autoplay]="true" [autoplayInterval]="3000" [overflowCellsLimit]="1"-->
+  <!--            style="width: 100%">-->
+  <!--    <div class="carousel-cell p-1" *ngFor="let post of posts">-->
+  <!--      <img [src]="post.company?.image" width="100%" style="border: #0b0b0b" (click)="viewDetail(post.company?.id)">-->
+  <!--    </div>-->
+  <!--  </carousel>-->
+</div>
+<!--</div>-->
+
+

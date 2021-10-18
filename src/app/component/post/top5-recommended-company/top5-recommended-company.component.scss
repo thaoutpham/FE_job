@@ -1,0 +1,40 @@
+.employerList {
+  margin: 0 -15px;
+}
+.employerList:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+.employerList li {
+  float: left;
+  width: 145px;
+  padding: 15px;
+}
+.employerList li img {
+  transition: 0.4s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  -ms-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+}
+.employerList li img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3)
+}
+.viewallbtn {
+  text-align: center;
+  margin-top: 20px;
+}
+.viewallbtn a {
+  display: inline-block;
+  background: #FFFFFF;
+  color: #26317f;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 5px;
+}
+.viewallbtn a:hover {
+  background: #FFFFFF !important;
+  text-decoration: none;
+}
+

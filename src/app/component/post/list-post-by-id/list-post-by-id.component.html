@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-8">
+    <div class="card mb-3 bg-light" style="max-width: 1300px;" *ngFor="let post of posts">
+
+      <div class="row g-0">
+        <div class="col-md-2">
+          <img [src]="post.company?.image" class="img-fluid rounded-start p-3" alt="..."
+               style="width: 100px;height: 100px">
+        </div>
+        <div class="col-md-10" style="font-size: 10px">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <p class="card-title" style="font-size: 15px;width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">
+                  <a [routerLink]="['/posts/view',post.id]" style="font-size: 20px">{{post.title | uppercase}}</a>
+                  <br>
+                  Số lượng tuyển :{{post.quantity}},
+                  Cấp bậc :{{post.position}},
+                  Kinh nghiệm :{{post.exp}}<br>
+                  Thời gian kết thúc : {{post.expiredDate | date : "dd/MM/yyyy"}}
+                </p>
+              </div>
+              <div class="col-2">Trạng thái :
+                <span *ngIf="post.status">
+                  Public
+                </span>
+                <span *ngIf="!post.status">
+                  Private
+                </span>
+              </div>
+              <div class="col-4">
+                <div><a [routerLink]="['/posts/edit',post.id]" class="btn btn-primary" style="width: 100%">Chỉnh sửa bài </a></div>
+                <br>
+                <div><button (click)="updateId(post.id)" class="btn btn-primary" style="color: snow; width: 100%"  data-bs-toggle="modal" data-bs-target="#exampleModal">Thay đổi trạng thái</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn thay đổi trạng thái ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="close()" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" (click)="updateStatus(id)" class="btn btn-primary">Thay đổi</button>
+      </div>
+    </div>
+  </div>
+</div>

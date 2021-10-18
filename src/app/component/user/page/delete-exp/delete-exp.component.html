@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <h1>Thông tin kinh nghiệm</h1>
+    <a [routerLink]="['/exp/list']">Danh sách kinh nghiêm</a>
+    <form [formGroup]="expForm" (ngSubmit)="delete()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="skill">Công việc</label>
+          <input type="text" class="form-control" formControlName="skill" id="skill" placeholder="skill">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Số năm</label>
+          <input type="text" class="form-control" formControlName="year" id="inputPassword4" placeholder="year">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Salary</label>
+        <input type="text" class="form-control" formControlName="salary" id="inputAddress" placeholder="salary">
+      </div>
+      <button type="submit" class="btn btn-primary">Xóa</button>
+    </form>
+
+  </div>
+  <div class="col-4"></div>
+</div>

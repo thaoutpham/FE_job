@@ -1,0 +1,48 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Danh sách thông tin
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Tên doanh nghiệp</th>
+            <th>Tên viết tắt</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Số lượng nhân viên</th>
+            <th>Website</th>
+            <th>Trạng thái đề xuất</th>
+            <th colspan="2">Hành động</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let company of companies">
+            <th>{{company.id}}</th>
+            <th>{{company.companyName}}</th>
+            <th>{{company.shortName}}</th>
+            <th>{{company.phone}}</th>
+            <th>{{company.address}}</th>
+            <th>{{company.numberOfStaff}}</th>
+            <th>{{company.website}}</th>
+            <th *ngIf="company.recommended==true">Được đề xuất</th>
+            <th *ngIf="company.recommended==false">Mặc định</th>
+            <td>
+              <button type="button" class="btn btn-block btn-outline-primary" (click)="editInfo(company.id)">Sửa</button>
+            </td>
+            <td *ngIf="company.recommended==true">
+              <button type="button" class="btn btn-block btn-outline-primary" (click)="changeRecommend(company.id)">Hủy đề xuất</button>
+            </td>
+            <td *ngIf="company.recommended==false">
+              <button type="button" class="btn btn-block btn-outline-primary" (click)="changeRecommend(company.id)">Đề xuất</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

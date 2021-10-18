@@ -1,0 +1,15 @@
+<div class="section greybg mt-2 ">
+  <!--  <div class="container">-->
+  <div class="titleTop">
+    <h1 class="text-center font-weight-bold">Top công ty được đề xuất</h1>
+  </div>
+
+  <ul class="employerList">
+    <li *ngFor="let company of companies" data-toggle="tooltip" data-placement="top" title="{{company.companyName}}"><a
+      routerLink="companies/view/{{company.id}}"><img [src]="company.image" class="img-fluid rounded-start p-3"
+                                                      alt="..."
+                                                      style="width: 100px;height: 100px"></a></li>
+  </ul>
+  <div class="viewallbtn"><a routerLink="/companies/all-recommended">Xem tất cả</a></div>
+</div>
+<!--</div>-->

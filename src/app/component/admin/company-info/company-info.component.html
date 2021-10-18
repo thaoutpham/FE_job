@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-12 col-lg-12">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5 border" style="background-color: whitesmoke">
+              <h1 class="login-heading text-center p-2">Thông tin công ty</h1>
+<!--              <div class="row text-center" *ngIf="message">-->
+<!--                <div class="alert alert-success" role="alert" *ngIf="isUpdated">{{message}}</div>-->
+<!--                <div class="alert alert-danger" role="alert" *ngIf="!isUpdated">{{message}}</div>-->
+<!--              </div>-->
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="col-12" style="border-radius: 50%; height: 256px; width: 256px;">
+                    <img src="{{company.image}}" style="width: 256px; height: 256px; border-radius: 50%;">
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Tên công ty:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.companyName}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Tên viết tắt:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.shortName}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Số điện thoại:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.phone}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Địa chỉ:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.address}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Mô tả:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.description}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Số lượng nhân viên:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.numberOfStaff}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Google Maps:</label>
+                    </div>
+                    <div class="col-9">
+                      <a href="{{company.linkGoogle}}" class="font-weight-bold" style="width: 300px; word-wrap: break-word">{{company.linkGoogle}}</a>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label class="font-italic">Website:</label>
+                    </div>
+                    <div class="col-9">
+                      <label class="font-weight-bold">{{company.website}}</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3">
+                    <div class="col-12 text-center">
+                      <a class="btn btn-primary" [routerLink]="['/admin/company-updateinfo/'+company.id]">Sửa thông tin</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

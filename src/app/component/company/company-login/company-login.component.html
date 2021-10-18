@@ -1,0 +1,78 @@
+<body class="bg-white">
+<div class="container-fluid">
+  <div class="row no-gutter"
+       style="background: url('../../../../assets/img/hero/h1_hero.jpg'); background-size: cover; background-repeat: no-repeat">
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <h2 class="login-heading mb-4 text-center font-weight-bold">Đăng nhập với tư cách nhà tuyển dụng</h2>
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                  </div>
+                </div>
+                <div class="col mt-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" style="background: skyblue"><i class="bi bi-lock"></i></span>
+                    <input [attr.type]="[isPassword]" class="form-control" formControlName="password"
+                           placeholder="Mật khẩu">
+                    <span class="input-group-text" [hidden]="(isPassword== 'text')" (click)="showPass()"
+                          style="background: skyblue"><i
+                      class="bi bi-eye"></i></span>
+                    <span class="input-group-text" [hidden]="(isPassword== 'password')" (click)="showPass()"
+                          style="background: skyblue"><i
+                      class="bi bi-eye-slash"></i></span>
+                  </div>
+                </div>
+                <div class="custom-control custom-checkbox mt-3">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Nhớ mật khẩu</label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mt-3"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                  Đăng nhập
+                </button>
+                <div class="text-center mt-3 pt-3">
+                  Bạn chưa có tài khoản? <a class="font-weight-bold" routerLink="/companies/register">Đăng ký ngay</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+      <!--      <img src="../../../../assets/img/service/support-img.jpg">-->
+      <!--      <img src="../../../../assets/img/hero/h1_hero.jpg">-->
+    </div>
+
+  </div>
+</div>
+
+</body>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+      </div>
+      <div class="modal-body">
+        {{message}}
+      </div>
+      <!--      <div class="modal-body" *ngIf="isLogin">-->
+      <!--        Đăng nhập thành công-->
+      <!--      </div>-->
+      <!--      <div class="modal-body" *ngIf="!isLogin">-->
+      <!--        Đăng nhập thất bại-->
+      <!--      </div>-->
+      <div class="modal-footer">
+        <button type="button" (click)="reload()" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

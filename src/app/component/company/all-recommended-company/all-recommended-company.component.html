@@ -1,0 +1,43 @@
+<div class="col-12" *ngFor="let company of companies">
+  <div class="job-header">
+    <div class="jobinfo">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <!-- Candidate Info -->
+          <div class="candidateinfo">
+            <div class="userPic"><img [src]="company.image" class="img-fluid rounded-start p-3" alt="..."
+                                      style="width: 100px;height: 100px"></div>
+            <div class="title"><a routerLink="/companies/view/{{company.id}}">{{company.companyName}}</a></div>
+            <div class="desi">{{company.shortName}}</div>
+            <div class="loctext"><i class="fa fa-map-marker" aria-hidden="true"></i> {{company.address}}</div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <!-- Candidate Contact -->
+          <div class="candidateinfo">
+            <div class="loctext"><i class="fa fa-phone" aria-hidden="true"></i> {{company.phone}}</div>
+            <div class="loctext"><i class="fa fa-envelope" aria-hidden="true"></i> {{company.email}}</div>
+            <div class="loctext"><i class="fa fa-globe" aria-hidden="true"></i> {{company.website}}</div>
+            <div class="cadsocial"><a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter-square"
+                                                                                        aria-hidden="true"></i></a> <a
+              href="{{company.linkGoogle}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+              <a href="http://www.facebook.com/" target="_blank"> <i class="fa fa-facebook-square"
+                                                                     aria-hidden="true"></i></a> <a
+                href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-square"
+                                                                     aria-hidden="true"></i></a> <a
+                href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square"
+                                                                    aria-hidden="true"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="jobButtons"><a (click)="showUnderConstruction()" class="btn apply"><i class="fa fa-paper-plane" aria-hidden="true"></i> Join Us</a>
+      <a (click)="showUnderConstruction()" class="btn"><i class="fa fa-envelope" aria-hidden="true"></i> Send Message</a> <a (click)="showUnderConstruction()"
+                                                                                                     class="btn"><i
+        class="fa fa-floppy-o" aria-hidden="true"></i> Save This Company</a> <a (click)="showUnderConstruction()" class="btn report"><i
+        class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report Abuse</a></div>
+  </div>
+</div>

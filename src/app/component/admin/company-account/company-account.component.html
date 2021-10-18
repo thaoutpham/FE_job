@@ -1,0 +1,36 @@
+<div class="animated fadeIn">
+  <div class="row">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Tài khoản doanh nghiệp chưa duyệt
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Tên doanh nghiệp</th>
+              <th>Tên viết tắt</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let company of companies">
+              <th>{{company.id}}</th>
+              <th>{{company.companyName}}</th>
+              <th>{{company.shortName}}</th>
+              <th>{{company.email}}</th>
+              <th>{{company.password}}</th>
+              <td>
+                  <button type="button" class="btn btn-block btn-outline-primary" (click)="enableAccount(company.id)">Duyệt</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,38 @@
+.ttl-line-left {
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  //margin-bottom: 18px;
+  color: #4cd3e3;
+  border-left: 5px solid;
+
+}
+
+.h1, h1 {
+  font-size: 1.5rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  //border-width: 0;
+  //border-bottom-width: 1px;
+  //border-radius: 0;
+  padding-left: 0;
+}
+
+body {
+  background: #ffd89b;
+  //background: -webkit-linear-gradient(to right, #ffd89b, #19547b);
+  //background: linear-gradient(to right, #ffd89b, #19547b);
+  min-height: 100vh;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+}
