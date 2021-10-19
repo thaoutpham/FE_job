@@ -4,37 +4,6 @@
     <div class="search">
       <input type="text" class="searchTerm" placeholder="Từ khóa: Java, PHP, ..." [(ngModel)]="keyword"
              [value]="keyword">
-      <mat-form-field class="selectTerm" appearance="fill">
-        <mat-label>Chọn ngành nghề</mat-label>
-        <mat-select class="default" name="category" [(ngModel)]="category">
-          <mat-option [value]='-1'>Tất cả ngành nghề</mat-option>
-          <mat-option *ngFor="let cat of categories" [value]='cat.id'>{{cat.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="selectTerm" appearance="fill">
-        <mat-label>Chọn thành phố</mat-label>
-        <mat-select class="default" name="city" [(ngModel)]="city" [value]="-1">
-          <mat-option [value]='-1'>Tất cả thành phố</mat-option>
-          <mat-option *ngFor="let city of cities" [value]="city.id">{{city.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="selectTerm" appearance="fill">
-        <mat-label>Chọn mức lương</mat-label>
-        <mat-select class="default" name="salary" [(ngModel)]="salaries" [value]="[-1,-1]">
-          <mat-option [value]="[-1,-1]">Tất cả mức lương</mat-option>
-          <mat-option [value]="[0,1000000]">Dưới 1Tr</mat-option>
-          <mat-option [value]="[1000000,3000000]">1Tr đến 3Tr</mat-option>
-          <mat-option [value]="[3000000,5000000]">3Tr đến 5Tr</mat-option>
-          <mat-option [value]="[5000000,7000000]">5Tr đến 7Tr</mat-option>
-          <mat-option [value]="[7000000,10000000]">7Tr đến 10Tr</mat-option>
-          <mat-option [value]="[10000000,15000000]">10Tr đến 15Tr</mat-option>
-          <mat-option [value]="[15000000,20000000]">15Tr đến 20Tr</mat-option>
-          <mat-option [value]="[20000000,30000000]">20Tr đến 30Tr</mat-option>
-          <mat-option [value]="[30000000,40000000]">30Tr đến 40Tr</mat-option>
-          <mat-option [value]="[40000000,50000000]">40Tr đến 50Tr</mat-option>
-          <mat-option [value]="[50000000,100000000]">Trên 50Tr</mat-option>
-        </mat-select>
-      </mat-form-field>
       <button type="submit" class="searchButton" (click)="searchJob()">
         <i class="fa fa-search"></i>
       </button>
