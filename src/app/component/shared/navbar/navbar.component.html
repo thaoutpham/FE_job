@@ -16,26 +16,12 @@
               <div class="main-menu">
                 <nav class="d-none d-lg-block">
                   <ul id="navigation" class="tu" *ngIf="token === ''">
-<!--                    <li><a routerLink="/">Trang chủ</a></li>-->
-<!--                    <li><a routerLink="/search-advanced">Tìm kiếm nâng cao</a></li>-->
                   </ul>
                   <ul id="navigation1" class="tu" *ngIf="(token !== '') && (type === 'USER')">
-<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
-<!--                      Trang chủ-->
-<!--                    </button>-->
-<!--                    </li>-->
                   </ul>
                   <ul id="navigation2" class="tu" *ngIf="(token !== '') && (type === 'COMPANY')">
-<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
-<!--                      Trang chủ-->
-<!--                    </button>-->
-<!--                    </li>-->
                   </ul>
                   <ul id="navigation3" class="tu" *ngIf="(token !== '') && (type === 'ADMIN')">
-<!--                    <li><button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary" type="button" aria-expanded="false" (click)="navigatemainsite()">-->
-<!--                      Trang chủ-->
-<!--                    </button>-->
-<!--                    </li>-->
                     <li><div class="dropdown">
                       <button style="background-color: whitesmoke; border: none; color: #0b0b0b" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Quản lý doanh nghiệp
@@ -116,35 +102,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Header End -->
 </header>
-<div class="modal fade" id="exampleModalx" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-  <form [formGroup]="UpCVForm" (ngSubmit)="save()" novalidate>
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="font-size: 20px">Đăng CV</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-2 mt-2">Tên CV: </div>
-          <div class="col-10">
-            <input type="text" class="form-control" formControlName="nameCV"
-                   placeholder="Tên CV">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4 mt-3" *ngIf="checkValid">
-            <i class="fas fa-check-circle" style="color: #1c7430; font-size: 30px"></i>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" *ngIf="checkValid">Lưu thay đổi</button>
-      </div>
-    </div>
-  </div>
-  </form>
-</div>

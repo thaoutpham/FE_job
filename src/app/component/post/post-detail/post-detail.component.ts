@@ -3,7 +3,6 @@ import {Post} from '../../../model/post/post';
 import {PostService} from '../../../service/post.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {TokenService} from '../../../service/token.service';
-import {CvService} from '../../../service/cv.service';
 import {CandidateService} from '../../../service/candidate.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class PostDetailComponent implements OnInit {
 
   constructor(private postService: PostService,
               private tokenService: TokenService,
-              private cvService: CvService,
               private candidateService: CandidateService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
@@ -39,7 +37,6 @@ export class PostDetailComponent implements OnInit {
       // @ts-ignore
       this.findById(this.idPost);
       this.checkLogin();
-      this.checkCv();
       this.checkApplied();
       this.checkUser();
     });
@@ -63,17 +60,6 @@ export class PostDetailComponent implements OnInit {
     }
   }
 
-  checkCv() {
-    if (this.isLogin) {
-      const id = this.tokenService.getToken().id;
-      this.cvService.findByUserId(id).subscribe(data => {
-        this.existedCv = true;
-        console.log(data);
-      }, error => {
-        console.log(error);
-      });
-    }
-  }
 
   checkUser() {
     const role = this.tokenService.getToken().roles[0].authority;
