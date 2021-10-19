@@ -63,13 +63,11 @@ export class PostService {
 
   getSuggestedPosts(cat_id: number, id: number) {
     console.log(environment.API_URL);
-    // @ts-ignore
     return this.http.get(`${environment.API_URL}/posts/${id}/${cat_id}`);
   }
 
-  getNewestPosts() {
-    // @ts-ignore
-    return this.http.get(`http://localhost:8080/posts/new`);
+  getNewestPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`http://localhost:8080/posts/topNew`);
   }
 
   getRecommendedPosts(): Observable<any> {

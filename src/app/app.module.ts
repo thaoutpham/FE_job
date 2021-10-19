@@ -14,13 +14,10 @@ import {environment} from '../environments/environment.prod';
 import {MainComponent} from './component/main/main.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
-
 import {SharedModule} from './module/shared/shared.module';
 import {SearchComponent} from './component/post/search/search.component';
 import {NewPostComponent} from './component/post/new-post/new-post.component';
-
 import {SideBarComponent} from './component/post/side-bar/side-bar.component';
-import {PreloaderStartComponent} from './component/shared/preloader-start/preloader-start.component';
 import {NavbarComponent} from './component/shared/navbar/navbar.component';
 import {FooterComponent} from './component/shared/footer/footer.component';
 import {JwPaginationComponent, JwPaginationModule} from 'jw-angular-pagination';
@@ -48,7 +45,6 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
     SearchComponent,
     NewPostComponent,
     SideBarComponent,
-    PreloaderStartComponent,
     NavbarComponent,
     FooterComponent,
     PostListComponent,
