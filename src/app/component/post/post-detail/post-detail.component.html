@@ -48,14 +48,9 @@
         <li>Ngày hết hạn : <span>{{post.expiredDate | date :"dd/MM/yyyy"}}</span></li>
       </ul>
       <div class="apply-btn2 text-center">
-        <!--            <a *ngIf="isLogin && !isUser" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpCV" style="color: white" disabled></a>-->
         <button *ngIf="isLogin && !isApplied && isUser" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalUpCV" style="color: white">Apply Now
         </button>
-        <button *ngIf="isLogin && isApplied && isUser" class="btn btn-primary" style="color: white" disabled>Bạn đã nộp
-          CV
-        </button>
-        <p *ngIf="!isLogin"><a routerLink="/users/login" class="btn btn-primary">Đăng nhập để nộp CV</a></p>
       </div>
     </div>
     <div>

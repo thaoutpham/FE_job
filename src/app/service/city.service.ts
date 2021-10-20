@@ -13,6 +13,6 @@ export class CityService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<City[]> {
-    return this.http.get<City[]>(environment.API_URL+'/cities');
+    return this.http.get<City[]>(environment.API_URL+'/provinces/list');
   }
 }

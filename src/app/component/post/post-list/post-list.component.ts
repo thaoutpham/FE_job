@@ -3,7 +3,6 @@ import {PostService} from '../../../service/post.service';
 import {Post} from '../../../model/post/post';
 import {Router} from '@angular/router';
 import {TokenService} from '../../../service/token.service';
-import {CandidateService} from '../../../service/candidate.service';
 
 @Component({
   selector: 'app-post-list',
@@ -17,8 +16,7 @@ export class PostListComponent implements OnInit {
   isApply = false;
   constructor(private postService: PostService,
               private router: Router,
-              private tokenService: TokenService,
-              private candidateService: CandidateService) {
+              private tokenService: TokenService,) {
   }
 
   ngOnInit(): void {

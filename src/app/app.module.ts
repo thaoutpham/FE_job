@@ -17,10 +17,9 @@ import {AngularFireModule} from '@angular/fire';
 import {SharedModule} from './module/shared/shared.module';
 import {SearchComponent} from './component/post/search/search.component';
 import {NewPostComponent} from './component/post/new-post/new-post.component';
-import {SideBarComponent} from './component/post/side-bar/side-bar.component';
 import {NavbarComponent} from './component/shared/navbar/navbar.component';
 import {FooterComponent} from './component/shared/footer/footer.component';
-import {JwPaginationComponent, JwPaginationModule} from 'jw-angular-pagination';
+import {JwPaginationModule} from 'jw-angular-pagination';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PostTopCompanyComponent } from './component/post/post-top-company/post-top-company.component';
 import { PageComponent } from './component/user/page/page.component';
@@ -44,7 +43,6 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
     MainComponent,
     SearchComponent,
     NewPostComponent,
-    SideBarComponent,
     NavbarComponent,
     FooterComponent,
     PostListComponent,
@@ -84,7 +82,6 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
   ],
   providers: [],
   exports: [
-    SideBarComponent,
     MainComponent,
   ],
   bootstrap: [AppComponent]

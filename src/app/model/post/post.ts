@@ -2,7 +2,6 @@ import {Category} from './category';
 import {WorkForm} from './work-form';
 import {Gender} from './gender';
 import {Company} from '../company/company';
-import {City} from './city';
 
 export interface Post {
   id?: string;
@@ -20,6 +19,5 @@ export interface Post {
   code?: string;
   status?: string;
   company?: Company;
-  city?: City;
   recommended?: boolean;
 }

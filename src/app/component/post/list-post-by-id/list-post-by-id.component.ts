@@ -36,6 +36,7 @@ export class ListPostByIdComponent implements OnInit {
 
   updateStatus(id: any) {
     this.postService.updateStatus(id).subscribe(() => {
+      console.log(id);
       window.location.reload();
     });
   }

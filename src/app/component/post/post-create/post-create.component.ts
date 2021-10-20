@@ -29,7 +29,6 @@ export class PostCreateComponent implements OnInit {
   gender?: Gender;
   workForm?: WorkForm;
   category?: Category;
-  city?: City;
   post?: Post;
   isUpdated = false;
   message = '';
@@ -45,7 +44,7 @@ export class PostCreateComponent implements OnInit {
     description: new FormControl(''),
     quantity: new FormControl('', [Validators.required]),
     gender: new FormControl('3'),
-    city:new FormControl('1')
+    code: new FormControl('3'),
   });
 
 
@@ -88,9 +87,9 @@ export class PostCreateComponent implements OnInit {
       company: this.company = {
         id: idCompany
       },
-      city: this.city={
-        id: this.postForm.value.city
-      }
+      // city: this.city={
+      //   id: this.postForm.value.city
+      // }
     };
     this.postService.save(this.post).subscribe(() => {
       this.postForm.reset();

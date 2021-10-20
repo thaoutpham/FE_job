@@ -13,9 +13,6 @@ export class CompanyInfoEditComponent implements OnInit {
   infoEditForm: FormGroup = new FormGroup({
     companyName: new FormControl(),
     shortName: new FormControl(),
-    // email: new FormControl(),
-    // password: new FormControl(),
-    // confirmedPassword: new FormControl(),
     phone: new FormControl(),
     description: new FormControl(),
     address: new FormControl(),
@@ -25,6 +22,8 @@ export class CompanyInfoEditComponent implements OnInit {
     website: new FormControl()
   });
   image? = '';
+  email? : string;
+  password? : string;
   message = '';
   isPassword = 'password';
   isConfirmedPassword = 'password';
@@ -43,6 +42,9 @@ export class CompanyInfoEditComponent implements OnInit {
   findById(id: string) {
     return this.companyService.findById(id).subscribe(company => {
       this.image = company.image;
+      this.email = company.email;
+      this.password = company.password;
+      console.log("hello"+this.password);
       this.infoEditForm = new FormGroup({
         companyName: new FormControl(company.companyName, [Validators.required]),
         shortName: new FormControl(company.shortName),
@@ -65,6 +67,8 @@ export class CompanyInfoEditComponent implements OnInit {
       companyName: this.infoEditForm.value.companyName,
       shortName: this.infoEditForm.value.shortName,
       image: this.image,
+      email: this.email,
+      password: this.password,
       phone: this.infoEditForm.value.phone,
       description: this.infoEditForm.value.description,
       address: this.infoEditForm.value.address,

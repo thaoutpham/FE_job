@@ -24,8 +24,11 @@ export class AccountComponent implements OnInit {
   getInfo() {
     const id = this.tokenService.getToken().id;
     this.companyService.findById(id).subscribe(company => {
+      console.log(company)
       this.companyName = company.companyName;
+      console.log(this.companyName)
       this.email = company.email;
+      console.log(this.email)
       // @ts-ignore
       this.message = localStorage.getItem('message');
       if (this.message === 'Đổi mật khẩu thành công') {

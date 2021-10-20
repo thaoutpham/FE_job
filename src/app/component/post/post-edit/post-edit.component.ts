@@ -83,7 +83,6 @@ export class PostEditComponent implements OnInit {
         description: new FormControl(result.description),
         quantity: new FormControl(result.quantity, [Validators.required]),
         gender: new FormControl(result.gender?.id),
-        city: new FormControl(result.city?.id)
       });
     });
   }
@@ -111,9 +110,9 @@ export class PostEditComponent implements OnInit {
       company: this.company = {
         id: idCompany
       },
-      city: this.gender = {
-        id: this.postForm.value.city
-      },
+      // city: this.gender = {
+      //   id: this.postForm.value.city
+      // },
     };
     this.postService.update(this.id, this.post).subscribe(() => {
       this.postForm.reset();

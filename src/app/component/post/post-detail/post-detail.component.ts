@@ -3,7 +3,6 @@ import {Post} from '../../../model/post/post';
 import {PostService} from '../../../service/post.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {TokenService} from '../../../service/token.service';
-import {CandidateService} from '../../../service/candidate.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -20,7 +19,6 @@ export class PostDetailComponent implements OnInit {
 
   constructor(private postService: PostService,
               private tokenService: TokenService,
-              private candidateService: CandidateService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
   }
@@ -37,7 +35,6 @@ export class PostDetailComponent implements OnInit {
       // @ts-ignore
       this.findById(this.idPost);
       this.checkLogin();
-      this.checkApplied();
       this.checkUser();
     });
   }
@@ -85,17 +82,4 @@ export class PostDetailComponent implements OnInit {
     );
   }
 
-  checkApplied() {
-    this.candidateService.findByPostId(this.idPost).subscribe(data => {
-      const userId = this.tokenService.getToken().id;
-      // @ts-ignore
-      for (const candidate of data) {
-        if (candidate.cv.user.id == userId) {
-          this.isApplied = true;
-        }
-      }
-    }, error => {
-      console.log(error);
-    });
-  }
 }
