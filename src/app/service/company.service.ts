@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Company} from '../model/company/company';
 import {environment} from '../../environments/environment.prod';
+import {Post} from "../model/post/post";
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +41,12 @@ export class CompanyService {
     return this.httpClient.get(environment.API_URL + `/companies/recommend/${id}`)
   }
   getMainPageCompanies(){
-    return this.httpClient.get(environment.API_URL + '/companies/main-page-recommended')
+    return this.httpClient.get(environment.API_URL + '/companies/top')
   }
   getAllRecommendedCompanies(){
     return this.httpClient.get(environment.API_URL + '/companies/all-recommended')
   }
-
+  getTop5Companies(): Observable<Company> {
+    return this.httpClient.get(environment.API_URL + `/companies/top/NumberOfStaff`);
+  }
 }

@@ -5,6 +5,7 @@ import {AuthService} from "../../../service/auth.service";
 import {TokenService} from "../../../service/token.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ExpService} from "../../../service/exp.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-page',
@@ -18,6 +19,7 @@ export class PageComponent implements OnInit {
   constructor(private expService: ExpService,
               private userService: UserService,
               private authService: AuthService,
+              private router: Router,
               private token: TokenService,
               ) {
   }

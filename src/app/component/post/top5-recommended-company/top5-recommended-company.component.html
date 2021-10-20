@@ -1,15 +1,47 @@
-<div class="section greybg mt-2 ">
-  <!--  <div class="container">-->
-  <div class="titleTop">
-    <h1 class="text-center font-weight-bold">Top công ty được đề xuất</h1>
-  </div>
+<!--<div class="section greybg mt-2 ">-->
+<!--  &lt;!&ndash;  <div class="container">&ndash;&gt;-->
+<!--  <div class="titleTop">-->
+<!--    <h1 class="text-center font-weight-bold">Top công ty được đề xuất</h1>-->
+<!--  </div>-->
 
-  <ul class="employerList">
-    <li *ngFor="let company of companies" data-toggle="tooltip" data-placement="top" title="{{company.companyName}}"><a
-      routerLink="companies/view/{{company.id}}"><img [src]="company.image" class="img-fluid rounded-start p-3"
-                                                      alt="..."
-                                                      style="width: 100px;height: 100px"></a></li>
-  </ul>
-  <div class="viewallbtn"><a routerLink="/companies/all-recommended">Xem tất cả</a></div>
-</div>
+<!--  <ul class="employerList">-->
+<!--    <li *ngFor="let company of companies" data-toggle="tooltip" data-placement="top" title="{{company.companyName}}"><a-->
+<!--      routerLink="companies/view/{{company.id}}"><img [src]="company.image" class="img-fluid rounded-start p-3"-->
+<!--                                                      alt="..."-->
+<!--                                                      style="width: 100px;height: 100px"></a></li>-->
+<!--  </ul>-->
 <!--</div>-->
+<div class="row mt-3">
+  <div class="col-12 text-center pt-3">
+    <h1 class="display-4 font-weight-bold uppercase">Top công ty tuyển dụng hàng đầu</h1>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-6" *ngFor="let company of companies ">
+    <div class="card mb-3" style="max-width: 650px;">
+      <div class="row g-0">
+        <div class="col-md-3">
+          <img [src]="company.image" class="img-fluid rounded-start p-3" alt="..." style="width: 100px;height: 100px">
+        </div>
+        <div class="col-md-9" style="font-size: 10px">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-9">
+                <p class="card-title" style="font-size: 10px;width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">
+                  <a routerLink="companies/view/{{company.id}}" style="font-size: 20px">{{company.companyName}}</a>
+                  <br>
+                  Tên viết tắt :{{company.shortName}}<br>
+                  Địa chỉ :{{company.address}}<br>
+                  Số lượng nhân viên : {{company.numberOfStaff}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

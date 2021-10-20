@@ -21,8 +21,6 @@ export class Top5RecommendedCompanyComponent implements OnInit {
     this.companyservice.getMainPageCompanies().subscribe(data => {
       // @ts-ignore
       this.companies = data;
-      // this.firstPost = this.posts[0];
-      // this.posts.shift();
     },error => {
       console.log(error);
     });

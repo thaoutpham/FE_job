@@ -45,9 +45,6 @@ export class PostService {
   }
 
 
-  getTop5Companies(): Observable<Post> {
-    return this.http.get(environment.API_URL + `/posts/get-top-5-companies`);
-  }
 
   getSearchedPosts(params: any) {
     const headers = new Headers();

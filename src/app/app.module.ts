@@ -23,10 +23,6 @@ import {JwPaginationModule} from 'jw-angular-pagination';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PostTopCompanyComponent } from './component/post/post-top-company/post-top-company.component';
 import { PageComponent } from './component/user/page/page.component';
-import { EditExpComponent } from './component/user/page/edit-exp/edit-exp.component';
-import { DeleteExpComponent } from './component/user/page/delete-exp/delete-exp.component';
-import { CreateExpComponent } from './component/user/page/create-exp/create-exp.component';
-import { ListExpComponent } from './component/user/page/list-exp/list-exp.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {MatMenuModule} from '@angular/material/menu';
@@ -51,15 +47,9 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
     PostTopCompanyComponent,
     PostSearchComponent,
     PageComponent,
-    EditExpComponent,
-    DeleteExpComponent,
-    CreateExpComponent,
-    ListExpComponent,
     Top5RecommendedCompanyComponent,
     Top1CompanyComponent,
     Top6RecommendedComponent,
-
-
 
   ],
   imports: [
