@@ -9,13 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import {MatOptionModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PostSearchComponent } from './component/post/post-search/post-search.component';
 import {environment} from '../environments/environment.prod';
 import {MainComponent} from './component/main/main.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
 import {SharedModule} from './module/shared/shared.module';
-import {SearchComponent} from './component/post/search/search.component';
 import {NewPostComponent} from './component/post/new-post/new-post.component';
 import {NavbarComponent} from './component/shared/navbar/navbar.component';
 import {FooterComponent} from './component/shared/footer/footer.component';
@@ -27,8 +25,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {MatMenuModule} from '@angular/material/menu';
 import { Top5RecommendedCompanyComponent } from './component/post/top5-recommended-company/top5-recommended-company.component';
-import { Top1CompanyComponent } from './component/company/top1-company/top1-company.component';
 import { Top6RecommendedComponent } from './component/post/top6-recommended/top6-recommended.component';
+import { PageSearchComponent } from './component/post/page-search/page-search.component';
 
 
 
@@ -37,7 +35,6 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
   declarations: [
     AppComponent,
     MainComponent,
-    SearchComponent,
     NewPostComponent,
     NavbarComponent,
     FooterComponent,
@@ -45,11 +42,10 @@ import { Top6RecommendedComponent } from './component/post/top6-recommended/top6
     SearchbarComponent,
     FooterComponent,
     PostTopCompanyComponent,
-    PostSearchComponent,
     PageComponent,
     Top5RecommendedCompanyComponent,
-    Top1CompanyComponent,
     Top6RecommendedComponent,
+    PageSearchComponent,
 
   ],
   imports: [

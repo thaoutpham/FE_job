@@ -18,7 +18,6 @@ export class SearchbarComponent implements OnInit {
     private salaryService: SalaryService,
     private postService: PostService,
     private router: Router,
-    private httpClient: HttpClient
   ) {
   }
 
@@ -26,13 +25,14 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
   }
   searchJob(){
+    console.log(this.keyword)
     const params: URLSearchParams = new URLSearchParams();
-    params.set('keyword', this.keyword);
+    params.set('title', this.keyword);
     // @ts-ignore
     this.postService.getSearchedPosts(params).subscribe((data: any ) => {
       console.log(params.toString());
       localStorage.setItem('search', JSON.stringify(data));
-      this.router.navigateByUrl('/posts/search').then(() => {
+      this.router.navigateByUrl('/posts/page-search').then(() => {
         location.reload();
       });
     });

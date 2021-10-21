@@ -41,21 +41,14 @@ export class PostService {
   }
 
   search(params: any): Observable<any> {
-    return this.http.get(environment.API_URL + `/posts/search?` + params.toString());
+    return this.http.get(environment.API_URL + `/posts/search/advance?` + params.toString());
   }
-
-
 
   getSearchedPosts(params: any) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // @ts-ignore
     return this.http.get(`${environment.baseUrl}/posts/find?` + params.toString());
-  }
-
-  countPosts() {
-    // @ts-ignore
-    return this.http.get(`${environment.baseUrl}/posts/count`);
   }
 
   getSuggestedPosts(cat_id: number, id: number) {
@@ -76,11 +69,8 @@ export class PostService {
     return this.http.put(`${environment.API_URL}/posts/recommended/${id}`);
   }
 
-  getTop1Companies(): Observable<any> {
-    return this.http.get(`${environment.API_URL}/posts/get-top-1-companies`);
-  }
 
   getTop6PostRecommended(): Observable<any> {
-    return this.http.get(`${environment.API_URL}/posts/top-6-recommended`);
+    return this.http.get(`${environment.API_URL}/posts/topSalary`);
   }
 }

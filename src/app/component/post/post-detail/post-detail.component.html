@@ -53,36 +53,5 @@
         </button>
       </div>
     </div>
-    <div>
-      <h2 class="text-center">Tin cùng chuyên ngành</h2>
-      <hr>
-      <div class="card mb-3" style="max-width: 650px;"
-           *ngFor="let post of posts | paginate: {itemsPerPage: 5, currentPage: page}">
-        <div class="row g-0">
-          <div class="col-md-2">
-            <img [src]="post.company?.image" class="img-fluid rounded-start p-3" alt="..." style="width: 100%">
-          </div>
-          <div class="col-md-8" style="font-size: 10px">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-9">
-                  <p class="card-title" style="font-size: 10px;width: 300px
-                      ;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                    <a [href]="url+post.id" style="font-size: 20px">{{post.title}}</a>
-                    <br>
-                    Số lượng tuyển :{{post.quantity}},
-                    Cấp bậc :{{post.position}},
-                    Kinh nghiệm :{{post.exp}}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-          </div>
-        </div>
-      </div>
-      <pagination-controls (pageChange)="page = $event"></pagination-controls>
-    </div>
   </div>
 </div>

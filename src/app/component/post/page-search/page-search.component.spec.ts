@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Top1CompanyComponent } from './top1-company.component';
+import { PageSearchComponent } from './page-search.component';
 
-describe('Top1CompanyComponent', () => {
-  let component: Top1CompanyComponent;
-  let fixture: ComponentFixture<Top1CompanyComponent>;
+describe('PageSearchComponent', () => {
+  let component: PageSearchComponent;
+  let fixture: ComponentFixture<PageSearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Top1CompanyComponent ]
+      declarations: [ PageSearchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Top1CompanyComponent);
+    fixture = TestBed.createComponent(PageSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

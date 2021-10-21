@@ -24,18 +24,21 @@ export class SearchAdvancedComponent implements OnInit {
 
   searchAdvanced() {
     const params: URLSearchParams = new URLSearchParams();
-    if (this.address !== '') {
-      params.set('address', this.address);
-    }
     if (this.title != '') {
       params.set('title', this.title);
     }
     if (this.salary !== '') {
       // @ts-ignore
-      params.set('salary', +this.salary * 1000000);
+      params.set('salary', +this.salary );
+    }else {
+      // @ts-ignore
+      params.set('salary', +(this.salary+1));
     }
     if (this.exp !== '') {
-      params.set('exp', this.exp + ' năm');
+      params.set('exp', this.exp);
+    }
+    if (this.address !== '') {
+      params.set('address', this.address);
     }
     // console.log(params.toString());
     this.postService.search(params).subscribe(data => {
