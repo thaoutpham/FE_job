@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CategoryService} from '../../../service/category/category.service';
-import {SalaryService} from '../../../service/salary/salary.service';
-import {PostService} from '../../../service/post/post.service';
-import {HttpClient} from '@angular/common/http';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -14,8 +11,6 @@ export class SearchbarComponent implements OnInit {
   keyword = '';
   constructor(
     private activatedRoute: ActivatedRoute,
-    private categoryService: CategoryService,
-    private salaryService: SalaryService,
     private postService: PostService,
     private router: Router,
   ) {

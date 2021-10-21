@@ -16,7 +16,7 @@
           <p>Vị trí: {{post.position}}</p>
           <p>Kinh nghiệm: {{post.exp}}</p>
           <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: {{post.company?.address}}</p>
-          <p *ngIf="isLogin">Lương: {{post.salary}} VNĐ</p>
+          <p *ngIf="isLogin">Lương: {{post.salary}} triệu VNĐ</p>
           <p *ngIf="!isLogin"><a routerLink="/users/login" class="btn btn-primary">Đăng nhập để xem lương</a></p>
         </div>
       </div>

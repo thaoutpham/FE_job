@@ -44,12 +44,6 @@ export class PostService {
     return this.http.get(environment.API_URL + `/posts/search/advance?` + params.toString());
   }
 
-  getSearchedPosts(params: any) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // @ts-ignore
-    return this.http.get(`${environment.baseUrl}/posts/find?` + params.toString());
-  }
 
   getSuggestedPosts(cat_id: number, id: number) {
     console.log(environment.API_URL);
@@ -72,5 +66,8 @@ export class PostService {
 
   getTop6PostRecommended(): Observable<any> {
     return this.http.get(`${environment.API_URL}/posts/topSalary`);
+  }
+  getSearchedPosts(params: any){
+    return this.http.get(`${environment.API_URL}/posts/search?` + params.toString());
   }
 }
